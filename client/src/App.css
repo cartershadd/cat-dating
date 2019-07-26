@@ -1,20 +1,24 @@
 :root {
   --sidebar-width: 100px;
   --sidebar-bg-colour: white;
+  font-family: 'Darker Grotesque', sans-serif;
 }
 
 a {
   text-decoration: none;
-  font: bold;
+  font-size: medium;
   color: black;
 }
 
-/*.wrapper {*/
-/*  text-align: center;*/
-/*  display: flex;*/
-/*  flex-wrap: wrap;*/
-/*  right: 0;*/
-/*}*/
+h1 {
+  padding: 0.25rem;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  right: 0;
+}
 
 .nav-ul {
   list-style: none;
@@ -29,21 +33,6 @@ a {
   text-decoration: none;
 }
 
-/*.menu-toggle {*/
-/*  display: initial;*/
-/*  margin: 0.5rem;*/
-/*  position: absolute;*/
-/*  right: 0;*/
-/*}*/
-
-/*.bar1, .bar2, .bar3 {*/
-/*  width: 35px;*/
-/*  height: 5px;*/
-/*  background-color: #333;*/
-/*  margin: 6px 0;*/
-/*  transition: 0.5s;*/
-/*}*/
-
 .navigation {
   display: flex;
   flex-direction: row;
@@ -53,30 +42,96 @@ a {
 }
 
 .profile {
-  padding: 1rem;
+  padding: 1rem 0.25rem 1rem 0.25rem;
   border: #ccc 1px ridge;
   margin: 0.7rem 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.cat-profile {
+  padding: 1rem;
+  /*border: #ccc 1px ridge;*/
+  margin: 0.7rem 0;
+  font-size: medium;
+  display: block;
+  text-align: center;
+}
+
+.cat-preview {
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+}
+
+.cat-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  height: 75%;
+}
+.profile-picture {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  height: 75%;
+}
+
+.profile-preview {
+  padding: 1rem 0.25rem 1rem 0.25rem;
+  border: #ccc 1px ridge;
+  margin: 0.7rem 0;
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+}
+
+.profile-preview-name {
+  font-size: 35px;
+  font-weight: bold;
+  padding: 0.2rem;
+}
+
+.paw-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fa-paw {
+  display: block;
+  padding: 0.25rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .badge {
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
   padding: 0.2rem 0.7rem;
   text-align: center;
   margin: 0.3rem;
-  background: seagreen;
+  background: #36b8cf;
   color: black;
   border-radius: 5px;
 }
 
 /*Search form & bar formatting*/
 .form {
-  width: 90%;
+  width: 100%;
   padding: 0.25rem;
+  display: flex;
 }
 
 .search-bar {
-  width: 50%;
+  width: 85%;
   height: 30px;
 }
 
@@ -85,22 +140,51 @@ a {
   background-color: aqua;
 }
 
-/*Media screen size changes*/
-/*@media (min-width: 767px) and (max-width: 850px) {*/
-/*  .main-content {*/
-/*    bottom: 0;*/
-/*    top: 0;*/
-/*  }*/
+.search-results {
+  display: flex;
+  flex-direction: column;
+}
 
-/*  .wrapper {*/
-/*    width: 100%;*/
-/*  }*/
+/*Contact Page*/
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  resize: vertical;
+}
 
-/*  .navigation {*/
-/*    width: 100%;*/
-/*  }*/
+.contact-font {
+  font-size: large;
+  font-weight: bolder;
+  width: 90%;
+}
 
-/*  .menu-toggle {*/
-/*    display: initial; !* display the toggle, previously hidden *!*/
-/*  }*/
-/*}*/
+
+input[type=text], input[type=email], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}

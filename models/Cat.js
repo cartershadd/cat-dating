@@ -16,10 +16,9 @@ const CatSchema = mongoose.Schema({
     about: {
         type: String,
     },
-    // badges: {
-    //     type: String,
-    //     default: 'personal'
-    // },
+    badges: [{
+        type: String,
+    }]
 });
 
 module.exports = mongoose.model('cat', CatSchema);

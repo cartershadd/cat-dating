@@ -1,18 +1,25 @@
 const express = require('express');
 const connectDB = require('./config/db');
 const path = require('path');
+var cors = require('cors');
 
 const app = express();
 
 // Connect Database
 connectDB();
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 // Init Middleware
 app.use(express.json({ extended: false }));
 
 // Define Routes
 app.use('/api/cats', require('./routes/cats'));
-// app.use('/api/auth', require('./routes/auth'));
+// app.use('/api/contact', require('./routes/contactRoute'));
 
 // Serve static assets in production
 if(process.env.NODE_ENV === 'production'){
