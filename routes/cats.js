@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 // const auth = require('../middleware/auth');
-const {check, validationResult} = require('express-validator/check');
+const {validationResult} = require('express-validator');
 
 const Cat = require('../models/Cat');
 
@@ -18,6 +18,34 @@ router.get('/', async (req, res) => {
     }
 });
 
+// @route   GET api/cats/:id
+// @desc    Get one cat
+// @access  Public
+router.get('/:id', async (req, res) => {
+    try {
+        let cat = await Cat.findById(req.params.id);
+
+        res.json(cat);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+// @route   GET  api/cats/search/:search
+// @desc    Get results from search bar
+// @access  Public
+router.get('/search/:search', async (req, res) => {
+    try {
+
+        let search = await Cat.find({name: new RegExp(req.params.search, "ig")});
+        res.json(search);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
 // @route   POST api/cats
 // @desc    Add new cat
 // @access  Private
@@ -27,7 +55,7 @@ router.post('/', async (req, res) => {
         return res.status(400).json({errors: errors.array()});
     }
 
-    const {name, sex, about} = req.body;
+    const {name, sex, about, badges} = req.body;
 
 
     try {
@@ -35,6 +63,7 @@ router.post('/', async (req, res) => {
             name,
             sex,
             about,
+            badges
         });
         const cat = await newCat.save();
 
@@ -49,14 +78,14 @@ router.post('/', async (req, res) => {
 // @desc    Update cat
 // @access  Private
 router.put('/:id', async (req, res) => {
-    const {name, sex, about} = req.body;
+    const {name, sex, about, badges} = req.body;
 
     // Build contact object
     const catFields = {};
     if (name) catFields.name = name;
     if (sex) catFields.sex = sex;
     if (about) catFields.about = about;
-    // if (badges) contactFields.badges = badges;
+    if (badges) catFields.badges = badges;
 
     try {
         let cat = await Cat.findById(req.params.id);

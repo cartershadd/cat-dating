@@ -1,25 +1,33 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import ProfilePreview from "../profiles/ProfilePreview";
 
 class Search extends Component {
     state = {
-        text: ''
+        text: '',
+        cats: [],
+        showNoResults: false,
+    };
+
+    searchCats = async text => {
+        const catUrl = `http://localhost:5000/api/cats/search/${text}`;
+
+        axios.get(catUrl).then(response => response.data)
+            .then((data) => {
+                this.setState({cats:data});
+                this.setState({showNoResults: this.state.cats.length === 0});
+            });
+
     };
 
     onSubmit = (e) => {
         e.preventDefault();
-        this.props.searchUsers(this.state.text);
+        this.searchCats(this.state.text);
         this.setState({text: ''});
     };
 
     onChange = (e) => {
         this.setState({[e.target.name]: e.target.value});
-    };
-
-    searchUsers = async text => {
-        const res = await axios.get();
-
-        this.setState({profile: res.data.items, loading: false})
     };
 
     render() {
@@ -29,7 +37,7 @@ class Search extends Component {
                     <input
                         type="text"
                         name="text"
-                        placeholder="Search profiles..."
+                        placeholder="Search cats..."
                         className="search-bar"
                         value={this.state.text}
                         onChange={this.onChange}
@@ -40,6 +48,15 @@ class Search extends Component {
                         className="search-btn"
                     />
                 </form>
+                <div className="search-results">
+                    {this.state.cats.map((value, index) => {
+                        return <ProfilePreview key={index} id={value._id} name={value.name} sex={value.sex} about={value.about}/>
+                    })}
+                    { this.state.showNoResults
+                        ? <div className="profile-preview">No results.</div>
+                        : <div/>
+                    }
+                </div>
             </div>
         );
     }
