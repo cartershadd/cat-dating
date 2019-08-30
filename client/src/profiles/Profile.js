@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import axios from "axios";
-import test from '../images/test.jpg';
 
 class Profile extends Component {
     constructor(props) {
@@ -10,12 +9,12 @@ class Profile extends Component {
             cat: {
                 name: '',
                 sex: '',
-                // image: [],
+                images: [],
                 about: '',
                 badges: []
             }
         };
-
+        console.log(this.state.cat.images);
     }
 
     componentDidMount() {
@@ -32,12 +31,18 @@ class Profile extends Component {
         return (
             <div className="cat-profile">
                 <h1 className="name">{this.state.cat.name}</h1>
-                <img src={test} className="profile-picture" alt="cat"/>
+
+                {this.state.cat.images.map((image, index) => (
+                    <span key={index} className="image-wrapper">
+                        <img src={image} className="profile-picture" alt="cat"/>
+                    </span>
+                ))}
+
                 <p className="about">{this.state.cat.sex}</p>
                 <p className="about">{this.state.cat.about}</p>
 
-                {this.state.cat.badges.map((badge) => (
-                    <span className="badge">
+                {this.state.cat.badges.map((badge, index) => (
+                    <span key={index} className="badge">
                         {badge}
                     </span>
                 ))}

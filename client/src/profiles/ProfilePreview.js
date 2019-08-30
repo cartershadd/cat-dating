@@ -1,15 +1,13 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import test from '../images/test.jpg';
-
 
 class ProfilePreview extends Component {
     render() {
         return (
-            <Fragment className="cat-preview">
+            <div className="cat-preview">
                 <Link to={`/cats/${this.props.id}`} className="profile-preview">
                     <span className="profile-preview-name">{this.props.name}</span>
-                    <img src={test} alt="cat" className="cat-img"/>
+                    <img src={this.props.images[0]} alt="cat" className="cat-img"/>
 
                     <div className="paw-wrapper">
                     <i className="fas fa-paw"/>
@@ -19,7 +17,7 @@ class ProfilePreview extends Component {
 
                 </Link>
 
-            </Fragment>
+            </div>
         )
     };
 }

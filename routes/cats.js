@@ -55,12 +55,13 @@ router.post('/', async (req, res) => {
         return res.status(400).json({errors: errors.array()});
     }
 
-    const {name, sex, about, badges} = req.body;
+    const {name, images, sex, about, badges} = req.body;
 
 
     try {
         const newCat = new Cat({
             name,
+            images,
             sex,
             about,
             badges
@@ -78,11 +79,12 @@ router.post('/', async (req, res) => {
 // @desc    Update cat
 // @access  Private
 router.put('/:id', async (req, res) => {
-    const {name, sex, about, badges} = req.body;
+    const {name, images, sex, about, badges} = req.body;
 
     // Build contact object
     const catFields = {};
     if (name) catFields.name = name;
+    if (images) catFields.images = images;
     if (sex) catFields.sex = sex;
     if (about) catFields.about = about;
     if (badges) catFields.badges = badges;

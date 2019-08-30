@@ -22,7 +22,7 @@ class ProfilesPage extends Component {
         return (
             <div className="profile">
                 {this.state.cats.map((value, index) => {
-                    return <ProfilePreview key={index} id={value._id} name={value.name} sex={value.sex} about={value.about}/>
+                    return <ProfilePreview key={index} id={value._id} name={value.name} images={value.images} sex={value.sex} about={value.about}/>
                 })}
             </div>
         )

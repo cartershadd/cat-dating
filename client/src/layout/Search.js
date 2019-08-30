@@ -10,24 +10,24 @@ class Search extends Component {
     };
 
     searchCats = async text => {
-        const catUrl = `http://localhost:5000/api/cats/search/${text}`;
+            const catUrl = `http://localhost:5000/api/cats/search/${text}`;
 
-        axios.get(catUrl).then(response => response.data)
-            .then((data) => {
-                this.setState({cats:data});
-                this.setState({showNoResults: this.state.cats.length === 0});
-            });
+            axios.get(catUrl).then(response => response.data)
+                .then((data) => {
+                    this.setState({cats:data});
+                    this.setState({showNoResults: this.state.cats.length === 0});
+                });
 
-    };
+        };
 
-    onSubmit = (e) => {
-        e.preventDefault();
-        this.searchCats(this.state.text);
-        this.setState({text: ''});
-    };
+        onSubmit = (e) => {
+            e.preventDefault();
+            this.searchCats(this.state.text);
+            this.setState({text: ''});
+        };
 
-    onChange = (e) => {
-        this.setState({[e.target.name]: e.target.value});
+        onChange = (e) => {
+            this.setState({[e.target.name]: e.target.value});
     };
 
     render() {

@@ -9,6 +9,9 @@ const CatSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    images: [{
+        type: String,
+    }],
     sex: {
         type: String,
         required: true,
