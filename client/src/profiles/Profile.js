@@ -14,11 +14,10 @@ class Profile extends Component {
                 badges: []
             }
         };
-        console.log(this.state.cat.images);
     }
 
     componentDidMount() {
-        const url = 'http://localhost:5000';
+        const url = process.env.API_URL;
         const catsUrl = `${url}/api/cats/${this.props.match.params.id}`;
 
         axios.get(catsUrl).then(response => response.data)
