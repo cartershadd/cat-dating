@@ -10,7 +10,7 @@ class Search extends Component {
     };
 
     searchCats = async text => {
-            const catUrl = `${process.env.API_URL}/api/cats/search/${text}`;
+            const catUrl = `/api/cats/search/${text}`;
 
             axios.get(catUrl).then(response => response.data)
                 .then((data) => {

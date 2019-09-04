@@ -10,8 +10,7 @@ class ProfilesPage extends Component {
     }
 
     componentDidMount() {
-        const url = process.env.API_URL;
-        const catsUrl = `${url}/api/cats/`;
+        const catsUrl = `/api/cats/`;
         axios.get(catsUrl).then(response => response.data)
             .then((data) => {
                 this.setState({cats:data});

@@ -17,8 +17,7 @@ class Profile extends Component {
     }
 
     componentDidMount() {
-        const url = process.env.API_URL;
-        const catsUrl = `${url}/api/cats/${this.props.match.params.id}`;
+        const catsUrl = `/api/cats/${this.props.match.params.id}`;
 
         axios.get(catsUrl).then(response => response.data)
             .then((data) => {
