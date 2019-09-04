@@ -50,7 +50,7 @@ class Search extends Component {
                 </form>
                 <div className="search-results">
                     {this.state.cats.map((value, index) => {
-                        return <ProfilePreview key={index} id={value._id} name={value.name} sex={value.sex} about={value.about}/>
+                        return <ProfilePreview key={index} id={value._id} images={value.images} name={value.name} />
                     })}
                     { this.state.showNoResults
                         ? <div className="profile-preview">No results.</div>
