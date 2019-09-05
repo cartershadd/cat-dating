@@ -62,10 +62,10 @@ h1 {
 }
 
 .image-wrapper {
-  display: grid;
-  grid-template-columns: 8px auto 8px;
-  grid-template-rows: 8px auto 300px;
-  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  justify-content: center;
  }
 
 .cat-preview {
@@ -80,12 +80,13 @@ h1 {
   margin-right: auto;
   width: 300px;
   height: 300px;
+  border-radius: 15px;
 }
 .profile-picture {
-  display: block;
   width: 300px;
   height: 300px;
   margin: 5px;
+  border-radius: 15px;
 }
 
 .profile-preview {
