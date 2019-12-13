@@ -4,6 +4,16 @@
   font-family: 'Darker Grotesque', sans-serif;
 }
 
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 a {
   text-decoration: none;
   font-size: medium;
@@ -14,94 +24,35 @@ h1 {
   padding: 0.25rem;
 }
 
-.container {
+/* Cat profile styling */
+
+.profile-container {
   display: flex;
-  flex-wrap: wrap;
-  right: 0;
-}
-
-.nav-ul {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.nav-li {
-  padding: 0.5rem;
-  right: 0;
-  text-decoration: none;
-}
-
-.navigation {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  width: 100%;
-  background-color: cadetblue;
-}
-
-.profile {
-  padding: 1rem 0.25rem 1rem 0.25rem;
-  border: #ccc 1px ridge;
-  margin: 0.7rem 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.cat-profile {
-  padding: 1rem;
-  font-size: medium;
-  display: block;
-  text-align: center;
+  flex-direction: column;
+  flex-flow: wrap;
+  justify-content: center;
   align-items: center;
-  justify-content: center;
-  margin: 0.7rem auto;
-}
-
-.image-wrapper {
-  flex-direction: row;
-  flex-wrap: wrap;
-  flex-flow: row wrap;
-  justify-content: center;
- }
-
-.cat-preview {
-  vertical-align: top;
-  display: inline-block;
   text-align: center;
+  margin: auto;
 }
 
-.cat-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 300px;
-  height: 300px;
-  border-radius: 15px;
+.card {
+  margin: 1rem;
 }
+
+.card-title {
+  align-self: center;
+}
+
+.card-img {
+  width: 18rem;
+  height: 18rem;
+}
+
 .profile-picture {
-  width: 300px;
-  height: 300px;
-  margin: 5px;
-  border-radius: 15px;
-}
-
-.profile-preview {
-  padding: 1rem 0.25rem 1rem 0.25rem;
-  border: #ccc 1px ridge;
-  margin: 0.7rem 0;
-  vertical-align: top;
-  display: inline-block;
-  text-align: center;
-}
-
-.profile-preview-name {
-  font-size: 35px;
-  font-weight: bold;
-  padding: 0.2rem;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 5rem;
 }
 
 .paw-wrapper {
@@ -131,27 +82,6 @@ h1 {
   border-radius: 5px;
 }
 
-/*Search form & bar formatting*/
-.form {
-  width: 100%;
-  padding: 0.25rem;
-  display: flex;
-}
-
-.search-bar {
-  width: 85%;
-  height: 30px;
-}
-
-.search-btn {
-  height: 35px;
-  background-color: aqua;
-}
-
-.search-results {
-  display: flex;
-  flex-direction: column;
-}
 
 /*Contact Page*/
 .contact-form {

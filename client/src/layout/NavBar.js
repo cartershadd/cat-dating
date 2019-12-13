@@ -1,37 +1,33 @@
-import React from 'react';
-import {Link} from "react-router-dom";
-import PropTypes from 'prop-types';
+import React, {Component} from 'react';
+import Navbar from 'react-bootstrap/Navbar';
+import {LinkContainer} from 'react-router-bootstrap';
+import Nav from 'react-bootstrap/Nav';
 
-const NavBar = ({icon, title}) => {
-    return (
-        <nav className="navigation">
-            <h1>
-                {title} <i className={icon} />
-            </h1>
-            <ul className="nav-ul">
-                <li className="nav-li">
-                    <Link to='/'>Home</Link>
-                </li>
-                <li className="nav-li">
-                    <Link to='/cats'>Available Cats</Link>
-                </li>
-                <li className="nav-li">
-                    <Link to='/contact'>Contact Us</Link>
-                </li>
-            </ul>
-        </nav>
-    );
-};
 
-NavBar.defaultProps = {
-    title: 'Find Your Perfect Cat Match',
-    icon: 'fas fa-cat'
-};
-
-NavBar.propTypes = {
-    title: PropTypes.string.isRequired,
-    icon: PropTypes.string.isRequired
-};
-
+class NavBar extends Component {
+    render() {
+        return (
+            <Navbar collapseOnSelect expand="*" bg="light" variant="light">
+                <Navbar.Brand>
+                    <i className="fas fa-cat"/>
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="mr-auto">
+                        <LinkContainer exact to="/">
+                            <Nav.Link>Home</Nav.Link>
+                        </LinkContainer>
+                        <LinkContainer exact to="/cats">
+                            <Nav.Link>Available Cats</Nav.Link>
+                        </LinkContainer>
+                        <LinkContainer exact to="/contact">
+                            <Nav.Link>Contact Us</Nav.Link>
+                        </LinkContainer>
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
+        );
+    };
+}
 
 export default NavBar;

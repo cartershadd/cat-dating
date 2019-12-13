@@ -19,7 +19,7 @@ class ProfilesPage extends Component {
 
     render() {
         return (
-            <div className="profile">
+            <div className="profile-container">
                 {this.state.cats.map((value, index) => {
                     return <ProfilePreview key={index} id={value._id} name={value.name} images={value.images} sex={value.sex} about={value.about}/>
                 })}

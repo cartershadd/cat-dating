@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import ProfilePreview from "../profiles/ProfilePreview";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 class Search extends Component {
     state = {
@@ -33,21 +35,15 @@ class Search extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.onSubmit} className="form">
-                    <input
-                        type="text"
-                        name="text"
-                        placeholder="Search cats..."
-                        className="search-bar"
-                        value={this.state.text}
-                        onChange={this.onChange}
+                <Form onSubmit={this.onSubmit}>
+                    <Form.Control type="text"
+                                  name="text"
+                                  placeholder="Search available cats..."
+                                  value={this.state.text}
+                                  onChange={this.onChange}
                     />
-                    <input
-                        type="submit"
-                        value="Search"
-                        className="search-btn"
-                    />
-                </form>
+                    <Button variant="success" type="search">Search</Button>
+                </Form>
                 <div className="search-results">
                     {this.state.cats.map((value, index) => {
                         return <ProfilePreview key={index} id={value._id} images={value.images} name={value.name} />
