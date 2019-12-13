@@ -3,11 +3,8 @@ import Search from './Search';
 
 const Home = () => {
     return (
-        <div>
+        <div className="home">
             <Search/>
-            <p>
-                Find the cat that's right for you!
-            </p>
         </div>
     );
 };

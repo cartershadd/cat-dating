@@ -17,9 +17,6 @@ class NavBar extends Component {
                         <LinkContainer exact to="/">
                             <Nav.Link>Home</Nav.Link>
                         </LinkContainer>
-                        <LinkContainer exact to="/cats">
-                            <Nav.Link>Available Cats</Nav.Link>
-                        </LinkContainer>
                         <LinkContainer exact to="/contact">
                             <Nav.Link>Contact Us</Nav.Link>
                         </LinkContainer>

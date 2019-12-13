@@ -31,9 +31,7 @@ class Profile extends Component {
                 <h1 className="name">{this.state.cat.name}</h1>
 
                 {this.state.cat.images.map((image, index) => (
-                    <span key={index} className="image-wrapper">
-                        <img src={image} className="profile-picture" alt="cat"/>
-                    </span>
+                        <img key={index} src={image} className="profile-picture" alt="cat"/>
                 ))}
 
                 <p className="about">{this.state.cat.sex}</p>
